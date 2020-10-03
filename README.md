@@ -30,4 +30,24 @@ sağlayan web sunuculardır.
 
 Bir web sitelerinin görüntülenebilmesi için bir web sunucusunda depolanması gerekir.
 
+-Sql İnjection nedir: Uygulamadan alınan parametrelerin (girdi) doğrudan veritabanı sunucusuna gönderilmesi sonucu veritabanı üzerinde izinsiz 
+sorgular çalıştırılabilir.
+İkinci olarak, uygulama seviyesinde yeterli girdi denetimi yapılmadığında veya Veritabanı sunucusunda gelen sorguların denetimi yapılmadığında 
+SQL i gerçekleştirebilir.
+
+* Sql injectionın sebepleri: Backend veri deposunu hedef alır, düzgün filtrelenmeyen girdilerden faydalanarak veritabanını manipüle etmeyi sağlayan 
+kod enjeksiyon atağıdır.
+İzinsiz olarak SQL sorgularını çalıştırır.
+Yeterli derecede filtre yapılmayan SQL sorgularına ekleme yapabilir.
+Saldırgan veri tabanından veri silebilir, veri tabanına veri ekleyebilir veya veri tabanındaki veriyi değiştirebilir.
+
+* Sql injection tespiti: Web uygulamasındaki cookie, http başlıkları(http header dahil) da dahil olmak üzere bütün girdi noktaları bulunur.
+Veri tabanından veri aldığı düşünülen bütün girdi noktaları bulunur.(Arama sözcükleri ve login formları)
+Manuel olarakta saldırabilir, otomatik tool araçlarla da saldırabilir.
+
+bu kısımda Sql İnjection saldırıları nasıl yapılıyor ve çeşitleri nelerdir bunu öğreneceğiz.
+
+
+
+
 
