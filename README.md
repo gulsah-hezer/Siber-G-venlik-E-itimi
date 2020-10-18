@@ -64,7 +64,72 @@ SQLMAPKULLANIMI:
 
 *****************************SQL İNJECTİON İS OVER******************
 
-CROSS SİTE SCRİPTİNG (XSS)
+CROSS SİTE SCRİPTİNG (XSS):Siteler arası betik çalıştırma 
+* Kurbanın tarayıcısında zararlı kod çalıştırmaya yönelik olarak yapılan saldırılardır.
+* Tarayıcı gönderilen kodun websitesine ait olduğunu düşünerek çalıştırır.
+* İstemci taraflı zaafiyet
+
+İki farklı yöntemle XSS saldırısı yapılabilmektedir:
+* Stored XSS 
+* Reflected XSS 
+
+XSS ile neler yapılabilir:
+* Kurbanın oturum bilgileri(cookie, session token) çalınabilir.
+* Clickjacking ile kurban farkında olmadan istemediği bir bağlantıya tıklaması sağlanabilir
+* Kurban istenilen sayfaya yönlendirilebilir.
+
+XSS tespiti ve Filtreleri atlatma:
+* En basit yöntem bulunan girdi noktalarına <script> alert("XSS")< /script> değeri girilerek pop-up penceresinin çıkıp çıkmadığının 
+  kontrol edilmesidir.
+* Yazılımcının belli karakterleri kara listeye alması durumunda bu filtreler atlatılabilir.
+  -encoding cesitleri kullanarak
+  -<script> tagleri dışında baska tagler kullanarak.
+  
+Reflected XSS: istemci tarfından pop up şeklinde bir takım şeylere tıklatarak oturum bilgisi almaya çalışmasıdır.
+Stored XSS: 
+-basit bir pop up penceresi oluşturulabilir.(!!!!!Eğer örneğin www.example.com/index.php?user=guest<script>alert("XSS")</script> yazarak bu sistede XSS olup olmadığını anlayabiliriz.)
+- Kurbanın cookie bilgilerini saldırgana yollayabilir.(bir sayfa oluşturup bunu javascript kodu içerisine entegre ederek oturum bilgilerinizi çalmaya çalışıyor)
+-Uzak bir kaynaktan zararlı bir script çağırabilir.
+
+XSS araçları: hedef sunucuya otamatik XSS atakları yapılmasını sağlar.(bunların denetimini Acunetics Netsparker gibi web uygulama zafiyet tarayıcıları kullanarak tespit edebilirz.)
+
+XSS koruma yöntemleri:
+-Kullanıcıdan gelen girdiler aynı haliyle ekrana bastırılmamalıdır.(request kısmında girilen bilgi belirli filtrelerden girilip basılması)
+-Payload ları deneyerek hazır XSS açığı olup olmadığı test edilebilir.
+
+Reflected XSS:
+ekranda isim ve soyisim doldurma tabında isim kısmına gulsah<script>alert(1)</script>
+sonra go diyoruz ve pop up çıkartıyor.
+bu yazdıklarımız javascript kodu.
+eğer bu alana <script>alert(document.cookie)</script> yazdıktan sonra oturum bilgisini vermektedir.
+
+
+************************XSS is over******************
+
+Insecure Direct Object References
+
+Idor nedir?
+-Sunucu içindeki dosya gibi objelerin direkt referanslarının açık olması ve kontrol edilmemesi, saldırganların bunları değiştirmesine veya izinsiz olarak 
+değiştirmelerine ve erişmelerine neden olmaktadır.
+-Fatih kullanıcısının kürşat kullanıcısına erişemiyor olması gerekiyor bunun için token la erişim olması gerkiyor.
+örnek: http://www.abankası.com/hesapNo.php?hesap=412499
+       http://www.abankası.com/hesapNo.php?hesap=989174
+
+Idor korunma yöntemleri:
+- Her referansın ömrü yalnız 1 kullanıcılık ve 1 oturumluk olmalıdır.
+       
+       
+
+
+
+
+***********************Idor is over****************
+
+
+
+
+
+
 
 
 
