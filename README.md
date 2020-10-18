@@ -117,6 +117,8 @@ değiştirmelerine ve erişmelerine neden olmaktadır.
 
 Idor korunma yöntemleri:
 - Her referansın ömrü yalnız 1 kullanıcılık ve 1 oturumluk olmalıdır.
+-Güvenilmeyen kaynaklardan gelen erişim yetkileri kontrol edilmelidir.
+
        
        
 
@@ -125,9 +127,33 @@ Idor korunma yöntemleri:
 
 ***********************Idor is over****************
 
+Command İnjection:
+-İşletim sistemini hedef alır.
+-Command Injection, saldırganın web arayüzünden sunucu tarafında işletim sistemleri komutları çalıştırılmasıdır.
+-system() ve exec() gibi fonksiyonları çağıran parametrelerin uygulama tarafında düzgün parse edilmemesinden kaynaklanmaktadır.
+-xss client ı yani istemciyi hedef alıyordu ama uygulmanın barındığı sunucu üzerinde komut çalıştırma yetkisine sahip olur.
+-ekrana exec() fonksiyonu ile birşeyler yazdırıyorsak kullanıcdan aldığımız değeri parse etmemiz gerekiyor, filtrelememiz gerekiyor.
+
+
+Command İnjection senaryosu:
+* Sistemde çalışan php kodu:
+post ip , ping ip ve echo shell exec ama biz paralel komut çalıştırabiliyoruz.
+
+
+Command İnjection test aracı: github içinde commix adlı uygulama kullanılabilir.
 
 
 
+
+*******************Command İnjection is over*********
+
+File Inclusion:
+
+
+
+
+
+*******************Fıle Inclusion is over***********
 
 
 
